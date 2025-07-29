@@ -72,7 +72,7 @@ export class SaveConnectPlatform implements DynamicPlatformPlugin {
    * @returns {Promise<string[]>} - A promise that resolves to an array of IP addresses of discovered devices.
    */
   async discoverDevices(): Promise<string[]> {
-    this.log.info('Discovering SAVE CONNECT devices for 5 seconds ...');
+    this.log.info('Discovering SAVE CONNECT devices for 1 minute ...');
     return new Promise((resolve, reject) => {
       const ipAddresses: string[] = [];
       const browser = new Browser('_http._tcp');
@@ -103,7 +103,7 @@ export class SaveConnectPlatform implements DynamicPlatformPlugin {
         browser.stop();
 
         resolve(ipAddresses);
-      }, 5000);
+      }, 60000);
     });
   }
 
